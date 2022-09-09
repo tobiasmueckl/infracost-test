@@ -17,8 +17,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      - name: HashiCorp - Setup Terraform
-        uses: hashicorp/setup-terraform@v2.0.0
+      - name: Show files
+        run: ls -al && pwd
           
       - name: Setup Infracost
         uses: infracost/actions/setup@v2
