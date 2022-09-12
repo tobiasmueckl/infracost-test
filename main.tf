@@ -11,7 +11,7 @@ terraform {
 }
 
 resource "aws_db_instance" "db" {
-    allocated_storage    = 200
+    allocated_storage    = 20
     engine               = "mysql8"
     engine_version       = "8.0.28"
     instance_class       = "db.t4g.micro"
