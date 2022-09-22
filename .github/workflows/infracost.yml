@@ -13,6 +13,7 @@ jobs:
       pull-requests: write
     env:
       TF_ROOT: .
+      INFRACOST_CURRENCY: EUR
       
     steps:
       - uses: actions/checkout@v3
