@@ -19,6 +19,6 @@ resource "google_sql_database_instance" "main" {
 
   settings {
     tier = "db-f1-micro"
-    disk_size = 200
+    disk_size = 20
   }
 }
