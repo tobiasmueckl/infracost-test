@@ -1,23 +1,24 @@
 terraform {
-  backend "local" {
-    path = "./state/terraform.tfstate"
-  }
   required_providers {
-    aws = {
-      source = "hashicorp/aws"
-      version = "4.24.0"
+    google = {
+      source = "hashicorp/google"
+      version = "3.5.0"
     }
   }
 }
 
-resource "aws_db_instance" "db" {
-    allocated_storage    = 20
-    engine               = "mysql8"
-    engine_version       = "8.0.28"
-    instance_class       = "db.t4g.micro"
-    db_name              = "testdb"
-    username             = "testuser"
-    password             = "testpassword"
-    max_allocated_storage = 0
-    parameter_group_name = "default.mysql8.0"
- }
+provider "google" {
+  project     = "my-demo-project"
+  region      = "europe-west3"
+}
+
+resource "google_sql_database_instance" "main" {
+  name             = "demo-db-instance"
+  database_version = "POSTGRES_14"
+  region           = "europe-west3"
+
+  settings {
+    tier = "db-f1-micro"
+    disk_size = 200
+  }
+}
